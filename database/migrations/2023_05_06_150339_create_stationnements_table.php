@@ -19,21 +19,11 @@ return new class extends Migration
             $table->unsignedBigInteger('idUtilisateur');
             $table->unsignedBigInteger('idPark');
             $table->unsignedBigInteger('idType');
-            $table->foreign('idUtilisateur')
-                  ->references('idU')
-                  ->on('util2isateurs')
-                  ->onDelete('cascade')
-                  ->onUpdate('cascade');
-            $table->foreign('idPark')
-                  ->references('idPark')
-                  ->on('parkings')
-                  ->onDelete('cascade')
-                  ->onUpdate('cascade');
-            $table->foreign('idType')
-                  ->references('idT')
-                  ->on('type_tarifs')
-                  ->onDelete('cascade')
-                  ->onUpdate('cascade');
+            $table->foreignId('utilisateurs_id');
+            $table->foreignId('parking_id');
+            $table->foreignId('types_tarifs_id');
+                 
+                
         });
     }
 
